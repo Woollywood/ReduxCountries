@@ -1,7 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
-import { selectSearch } from '../store/controls/selectors';
-import { setSearch } from '../store/controls/actions';
+import { setSearch } from './slice';
 
 import { IoSearch } from 'react-icons/io5';
 
@@ -34,7 +33,7 @@ const Input = styled.input.attrs({
 `;
 
 export const Search = () => {
-	const search = useSelector(selectSearch);
+	const { search } = useSelector((state) => state.controls);
 	const dispatch = useDispatch();
 
 	return (

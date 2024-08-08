@@ -3,8 +3,7 @@ import styled from 'styled-components';
 
 import { Search } from './Search';
 import { CustomSelect } from './CustomSelect';
-import { selectRegion } from '../store/controls/selectors';
-import { setRegion } from '../store/controls/actions';
+import { setRegion } from './slice';
 
 const optionsMap = {
 	Africa: { value: 'Africa', label: 'Africa' },
@@ -28,7 +27,7 @@ const Wrapper = styled.div`
 `;
 
 export const Controls = () => {
-	const region = useSelector(selectRegion);
+	const { region } = useSelector((state) => state.controls);
 	const dispatch = useDispatch();
 
 	return (
